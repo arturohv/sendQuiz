@@ -1,17 +1,23 @@
 <?php
+        //Datos de configuración de la conexión a la base de datos
+        //Se extraen los datos del archivo ini.xml
+        $ini= simplexml_load_file('ini.xml');
 
-//Datos de configuración de la conexión a la base de datos
+        //Servidor
+        $host=$ini->host;
 
-//Servidor
-$host='localhost';
+        //Usuario
+        $user=$ini->user;
 
-//Usuario
-$user='root';
+        //Password
+        $password=$ini->password;
 
-//Password
-$password='';
+        //Base de datos a utilizar
+        $db=$ini->db;
 
-//Base de datos a utilizar
-$db='testDB';
+        //Limite de Correos a enviar
+        $limit_mail=$ini->limit_mail;
 
+        //Limite de Delay entre cada horda de correos
+        $delay_seg=$ini->delay_seg;        
 ?>
