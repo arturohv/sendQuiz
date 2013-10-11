@@ -16,7 +16,7 @@
         $db=$ini->db;
 
         //Limite de Correos a enviar
-        $limit_mail=$ini->limit_mail;
+        $email_batch_limit=$ini->email_batch_limit;
 
         //Limite de Delay entre cada horda de correos
         $delay_seg=$ini->delay_seg;        
