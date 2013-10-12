@@ -8,6 +8,8 @@ Class Conf
    private $_passdb;
    private $_hostdb;
    private $_db;
+   private $_email_batch_limit;
+   private $_delay_seg;
 
    static $_instance;
 
@@ -18,6 +20,9 @@ Class Conf
       $this->_passdb=$password;
       $this->_hostdb=$host;
       $this->_db=$db;
+      $this->_email_batch_limit=$email_batch_limit;
+      $this->_delay_seg=$delay_seg;
+      
    }
 
    private function __clone(){ }
@@ -47,6 +52,16 @@ Class Conf
    public function getDB(){
       $var=$this->_db;
       return $var;
+   }
+   
+   public function getEmailBatchLimit(){
+      $var=$this->_email_batch_limit;
+      return $var; 
+   }
+   
+   public function getDelaySeg(){
+      $var=$this->_delay_seg;
+      return $var; 
    }
 
 }

@@ -5,19 +5,13 @@ require_once('class.phpmailer.php');
 $mail             = new PHPMailer();
 
 $body             = file_get_contents('../notificacion.html');
-$body             = eregi_replace("[\]",'',$body);
+//$body             = eregi_replace("[\]",'',$body);
  
 $mail->IsSMTP(); // telling the class to use SMTP
-//$mail->Host       = "mail.yourdomain.com"; // SMTP server
-$mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
+$mail->Host       = "smtp.gmail.com"; // SMTP server
+$mail->SMTPDebug  = 1;                     // enables SMTP debug information (for testing)
 // 1 = errors and messages
 // 2 = messages only
-/*$mail->SMTPAuth   = true;                  // enable SMTP authentication
-$mail->Host       = "mail.yourdomain.com"; // sets the SMTP server
-$mail->Port       = 26;                    // set the SMTP port for the GMAIL server
-$mail->Username   = "yourname@yourdomain"; // SMTP account username
-$mail->Password   = "yourpassword";        // SMTP account password*/
-
 $mail->SMTPAuth   = true;                  // enable SMTP authentication
 $mail->SMTPSecure = "SSL";                 // sets the prefix to the servier
 $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
