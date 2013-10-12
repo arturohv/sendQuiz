@@ -8,7 +8,7 @@ $body             = file_get_contents('../notificacion.html');
 $body             = eregi_replace("[\]",'',$body);
  
 $mail->IsSMTP(); // telling the class to use SMTP
-$mail->Host       = "mail.yourdomain.com"; // SMTP server
+//$mail->Host       = "mail.yourdomain.com"; // SMTP server
 $mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
 // 1 = errors and messages
 // 2 = messages only
@@ -19,9 +19,9 @@ $mail->Username   = "yourname@yourdomain"; // SMTP account username
 $mail->Password   = "yourpassword";        // SMTP account password*/
 
 $mail->SMTPAuth   = true;                  // enable SMTP authentication
-$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+$mail->SMTPSecure = "SSL";                 // sets the prefix to the servier
 $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
-$mail->Port       = 587;                   // set the SMTP port for the GMAIL server
+$mail->Port       = 465;                   // set the SMTP port for the GMAIL server
 $mail->Username   = "dracosurvey@gmail.com";  // GMAIL username
 $mail->Password   = "MIMBOS1983";            // GMAIL password
 
