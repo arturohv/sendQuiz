@@ -145,6 +145,7 @@ class SMTP
         $this->helo_rply = null;
 
         $this->do_debug = 0;
+        
     }
 
     /**

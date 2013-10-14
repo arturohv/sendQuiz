@@ -41,10 +41,11 @@ Class Db{
 
    /*Realiza la conexión a la base de datos.*/
    private function conectar(){
-      $this->link=mysql_connect($this->servidor, $this->usuario, $this->password);
+      
+      $this->link=mysql_connect($this->servidor, $this->usuario, $this->password); 
       mysql_select_db($this->base_datos,$this->link);
-      @mysql_query("SET NAMES 'utf8'");
-   }
+      @mysql_query("SET NAMES 'utf8'");  
+ }
 
    /*Método para ejecutar una sentencia sql*/
    public function ejecutar($sql){

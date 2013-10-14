@@ -23,6 +23,8 @@ Class Conf
       $this->_email_batch_limit=$email_batch_limit;
       $this->_delay_seg=$delay_seg;
       
+     
+            
    }
 
    private function __clone(){ }

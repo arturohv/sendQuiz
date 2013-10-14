@@ -14,7 +14,7 @@
 
         //Base de datos a utilizar
         $db=$ini->db;
-
+        
         //Limite de Correos a enviar
         $email_batch_limit=$ini->email_batch_limit;
 
