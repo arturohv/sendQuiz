@@ -14,7 +14,7 @@ $mail->isSMTP();
 // 0 = off (for production use)
 // 1 = client messages
 // 2 = client and server messages
-$mail->SMTPDebug = 2;
+$mail->SMTPDebug = 0;
 //Ask for HTML-friendly debug output
 
 $mail->SMTPSecure = 'tls';
@@ -36,7 +36,7 @@ $mail->setFrom('dracosurvey@gmail.com', 'First Last');
 //Set an alternative reply-to address
 $mail->addReplyTo('dracosurvey@gmail.com', 'First Last');
 //Set who the message is to be sent to
-$mail->addAddress('ja35obando@gmail.com', 'John Doe');
+$mail->addAddress('arturohv@gmail.com', 'John Doe');
 //Set the subject line
 $mail->Subject = 'PHPMailer GMail SMTP test';
 //Read an HTML message body from an external file, convert referenced images to embedded,
