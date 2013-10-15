@@ -43,5 +43,6 @@ while ($x=$bd->obtener_fila($stmt,0)){
    $nombreCompleto = $x['nombre_estudiante'] . ' ' . $x['apellido_estudiante'];   
    //$mails=enviarcorreo::getInstance($email,$nombreCompleto);
    //$mails->enviar();
+   echo $email . $nombreCompleto;
 }
 ?>
