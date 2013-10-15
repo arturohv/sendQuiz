@@ -5,7 +5,7 @@ require_once 'Db.php';
 /*Incluimos el fichero de la clase Conf*/
 require_once 'Conf.php';
 
-require_once '/PHPMailer/class.enviarcorreo.php';
+require_once 'PHPMailer/class.enviarcorreo.php';
 
 /*Creamos la instancia del objeto. Ya estamos conectados*/
 $bd=Db::getInstance();
@@ -41,8 +41,8 @@ $stmt=$bd->ejecutar($sql);
 while ($x=$bd->obtener_fila($stmt,0)){
    $email =  $x['correo_estudiante'];
    $nombreCompleto = $x['nombre_estudiante'] . ' ' . $x['apellido_estudiante'];   
-   //$mails=enviarcorreo::getInstance($email,$nombreCompleto);
-   //$mails->enviar();
+   $mails=enviarcorreo::getInstance($email,$nombreCompleto);
+   $mails->enviar();
    echo $email . $nombreCompleto;
 }
 ?>
