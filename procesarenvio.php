@@ -40,9 +40,10 @@ $stmt=$bd->ejecutar($sql);
 /*Realizamos un bucle para ir obteniendo los resultados*/
 while ($x=$bd->obtener_fila($stmt,0)){
    $email =  $x['correo_estudiante'];
-   $nombreCompleto = $x['nombre_estudiante'] . ' ' . $x['apellido_estudiante'];   
-   $mails=enviarcorreo::getInstance($email,$nombreCompleto);
+   $nombreCompleto = $x['nombre_estudiante'] . ' ' . $x['apellido_estudiante'];
+   //echo $email . $nombreCompleto;
+   $mails = new enviarcorreo($email,$nombreCompleto);
    $mails->enviar();
-   echo $email . $nombreCompleto;
+   
 }
 ?>

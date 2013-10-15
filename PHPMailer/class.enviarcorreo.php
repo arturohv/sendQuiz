@@ -7,10 +7,12 @@
         private $_destinatario = "";
         private $_destinatarioNombre = "";
         
+        
         public function __construct($pDestinatario, $pDestinaNombre){
             $this->_destinatario = $pDestinatario;
             $this->_destinatarioNombre = $pDestinaNombre;
         }
+        
         
         public function getDestinatario(){
             $var=$this->_destinatario;
@@ -24,7 +26,7 @@
         
 
         public function enviar(){
-            require 'PHPMailerAutoload.php';
+            require_once 'PHPMailerAutoload.php';
             //SMTP needs accurate times, and the PHP time zone MUST be set
             //This should be done in your php.ini, but this is how to do it if you don't have access to that
             date_default_timezone_set('Etc/UTC');
@@ -56,22 +58,23 @@
             //Set an alternative reply-to address
             $mail->addReplyTo('dracosurvey@gmail.com', 'Servidor de Notificaciones (UTN)');
             //Set who the message is to be sent to
-            $mail->addAddress(getDestinatario(), getDestinatarioNombre());
+            $mail->addAddress($this->getDestinatario(), $this->getDestinatarioNombre());
             //Set the subject line
-            $mail->Subject = '(UTN) Notificación de enlace a Quiz (UTN)';
+            $mail->Subject = '(UTN) NOTIFICACION DE ENLACE A QUIZ (UTN)';
             //Read an HTML message body from an external file, convert referenced images to embedded,
             //convert HTML into a basic plain-text alternative body
-            $mail->msgHTML(file_get_contents('..\notificacion.html'), dirname(__FILE__));
+            $mail->msgHTML(file_get_contents('notificacion.html'), dirname(__FILE__));
             //Replace the plain text body with one created manually
-            $mail->AltBody = 'Asegurése de tener activo el modo HTML para visualizar este correo.';
+            $mail->AltBody = 'SU CONFIGURACION DE CORREO NO ADMITE FORMATO HTML.';
             //Attach an image file
             //$mail->addAttachment('images/phpmailer_mini.gif');
 
             //send the message, check for errors
             if (!$mail->send()) {
-                echo "Error: No se ha enviado el correo: " . $mail->ErrorInfo;
+                echo "Error: No se ha enviado el correo a: " . $this->getDestinatarioNombre() . 
+                " debido al siguiente error:" . $mail->ErrorInfo;
             } else {
-                echo "Correo enviado a: " . getDestinatarioNombre() . ", correctamente.";
+                echo "Correo enviado a: " . $this->getDestinatarioNombre() . ", correctamente." . "</br>" ;
             }
             
         }
