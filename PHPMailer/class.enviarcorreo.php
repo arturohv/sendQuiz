@@ -72,7 +72,7 @@
             //send the message, check for errors
             if (!$mail->send()) {
                 echo "Error: No se ha enviado el correo a: " . $this->getDestinatarioNombre() . 
-                " debido al siguiente error:" . $mail->ErrorInfo;
+                " debido al siguiente error:" . $mail->ErrorInfo . "<br>";
                 return 0;
             } else {
                 return 1;
