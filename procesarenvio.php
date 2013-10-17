@@ -38,12 +38,23 @@ where student_id = e.id and test_id = p.id)';
 $stmt=$bd->ejecutar($sql);
 
 /*Realizamos un bucle para ir obteniendo los resultados*/
+$envios = 0;
+$buenos = 0;
 while ($x=$bd->obtener_fila($stmt,0)){
    $email =  $x['correo_estudiante'];
    $nombreCompleto = $x['nombre_estudiante'] . ' ' . $x['apellido_estudiante'];
    //echo $email . $nombreCompleto;
+   
    $mails = new enviarcorreo($email,$nombreCompleto);
-   $mails->enviar();
+   //$mails->enviar();
+   
+   if ($mails->enviar() == 1) {
+       $buenos=$buenos+1;
+   }  
+   $envios = $envios + 1;
    
 }
+echo "Correo enviado. <br>";       
+echo 'Total de envios ' . $envios . " correctos: " . $buenos;    
+
 ?>
