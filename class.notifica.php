@@ -40,7 +40,7 @@
                                 </p>
 
                                 <h3>
-                                        Atentamente: ' . $this->_profesorNombre . '.
+                                        Atentamente: Prof.' . $this->_profesorNombre . '.
                                 </h3>
 
 
