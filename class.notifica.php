@@ -27,8 +27,7 @@
                                         <h2>UNIVERSIDAD TECNICA NACIONAL - SEDE SAN CARLOS</h2>
                                         <H2>SISTEMA DE ENVIO DE NOTIFICACIONES</H2>
                                 </center>
-                                <h3>Estimado: ' . $this->_estudianteNombre . '</h3>
-                                <br>
+                                <h3>Estimado(a): ' . $this->_estudianteNombre . '</h3>                                
                                 <p>
                                         El quiz ' . $this->_quizDescripcion . ' del curso ' . $this->_cursoNombre . ' ha sido activado a partir de 
                                         ' . $this->_fechaAplica . ' y por un lapso de ' . $this->_tiempo . ' minutos.
@@ -40,7 +39,7 @@
                                 </p>
 
                                 <h3>
-                                        Atentamente: Prof.' . $this->_profesorNombre . '.
+                                        Atentamente: Prof. ' . $this->_profesorNombre . '.
                                 </h3>
 
 
