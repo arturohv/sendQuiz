@@ -35,7 +35,7 @@ inner join professor as p on p.id = g.professor_id
 where t.application_date < CURDATE()
 and t.`status` = 1
 and NOT EXISTS (SELECT * from notification_sent 
-where student_id = e.id and test_id = p.id)';
+where student_id = e.id and test_id = t.id)';
 
 /*Ejecutamos la query*/
 $stmt=$bd->ejecutar($sql);
