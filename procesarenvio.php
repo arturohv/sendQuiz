@@ -27,7 +27,7 @@ $sql='SELECT
 				p.last_name as apellido_profesor		
 				
 FROM test AS t 
-inner JOIN `group` as g on g.id = t.group_id
+inner JOIN `groupinfo` as g on g.id = t.group_id
 INNER JOIN registration as r on r.group_id = g.id
 inner join student as e	on e.id = r.student_id
 inner join course as c on c.id = g.course_id
