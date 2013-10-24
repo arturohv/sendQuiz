@@ -11,6 +11,13 @@ require_once 'class.notifica.php';
 
 /*Creamos la instancia del objeto. Ya estamos conectados*/
 $bd=Db::getInstance();
+/*Instancia el archivo de configuracion*/
+$conf = Conf::getInstance();
+/*Carga la configuracion del maximo envio de correos por tiempo de espera*/
+$limit_batch = (int) $conf->getEmailBatchLimit();
+$delay_seg = (int) $conf->getDelaySeg();
+
+
 
 /*Creamos una query sencilla*/
 $sql='SELECT 
@@ -57,14 +64,19 @@ while ($x=$bd->obtener_fila($stmt,0)){
    
    
    if ($mails->enviar() == 1) {
-       $buenos=$buenos+1;
+       $buenos = $buenos + 1;
        $sql = 'Insert into notification_sent (student_id, test_id)
                VALUES(' . $estudianteId . ',' . $quizId . ')';
        /*Ejecutamos la query de la inserseccion en la tabla de notificacion SENT*/
-       $stmt2=$bd->ejecutar($sql);
-       
+       $stmt2=$bd->ejecutar($sql);       
    }  
+   
    $envios = $envios + 1;
+   if ($envios == $limit_batch) {
+       echo 'Esperando ... ' . $delay_seg . ' segundos. <br>' ;
+       sleep($delay_seg);
+       
+   }
    
 }
 
