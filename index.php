@@ -1,5 +1,6 @@
+/*Clase que realiza el envio de masivo
+de correos.*/
 <?php
-
 /*Incluimos el fichero de la clase Db*/
 require_once 'Db.php';
 /*Incluimos el fichero de la clase Conf*/
@@ -71,18 +72,22 @@ while ($x=$bd->obtener_fila($stmt,0)){
        $stmt2=$bd->ejecutar($sql);       
    }  
    
+   //Cuenta los envios realizados
    $envios = $envios + 1;
+   //Verifica el limite de correos 
    if ($envios == $limit_batch) {
+       //Realiza un sleep por el tiempo en segundos
        echo 'Esperando ... ' . $delay_seg . ' segundos. <br>' ;
-       sleep($delay_seg);
-       
+       sleep($delay_seg);       
    }
    
 }
 
+//Si se realizo algun envio
 if ($envios > 0) {
     echo "Proceso de envio finalizado. <br>";       
-    echo 'Total de envios ' . $envios . " correctos: " . $buenos;  
+    echo 'Total de envios ' . $envios . " correctos: " . $buenos;
+    //Si no se realiza da un mensaje que no hubo envios
 } else
 {
     echo 'No se ha realizado ningun envio, probablemente no hay informacion disponible.';

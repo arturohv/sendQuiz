@@ -1,3 +1,8 @@
+/*
+Clase qque crea la notificacion.
+Recibe parametros y construye el archivo fisico, el cual se incluye dentro
+del correo.
+*/
 <?php
     class Notifica{
         private $_estudianteNombre;

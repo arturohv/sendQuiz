@@ -1,8 +1,9 @@
+/*Clase que obtiene de config.php
+Toma los valores y los agrega a la clase.
+*/
 <?php
-
 Class Conf
 {
-
    private $_domain;
    private $_userdb;
    private $_passdb;
@@ -21,10 +22,7 @@ Class Conf
       $this->_hostdb=$host;
       $this->_db=$db;
       $this->_email_batch_limit=$email_batch_limit;
-      $this->_delay_seg=$delay_seg;
-      
-     
-            
+      $this->_delay_seg=$delay_seg;           
    }
 
    private function __clone(){ }

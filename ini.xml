@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
+Archivo Ini, que tiene los parametros
+para la conexion de la base de datos
 -->
 <root>    
         <host>localhost</host>
