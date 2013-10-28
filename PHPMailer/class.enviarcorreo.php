@@ -75,8 +75,7 @@
                 " debido al siguiente error:" . $mail->ErrorInfo . "<br>";
                 return 0;
             } else {
-                return 1;
-                //echo "Correo enviado a: " . $this->getDestinatarioNombre() . ", correctamente." . "</br>" ;
+                return 1;                
             }
             
         }
