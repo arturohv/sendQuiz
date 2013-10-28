@@ -7,8 +7,7 @@ para la conexion de la base de datos
         <host>localhost</host>
         <user>root</user>    
         <password></password>
-        <db>sendquiz</db>
-        <email_smtp_host>sendquizdb</email_smtp_host>        
+        <db>sendquiz</db>                
         <email_batch_limit>10</email_batch_limit>        
         <delay_seg>5</delay_seg>   
 </root>

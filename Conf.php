@@ -1,7 +1,9 @@
+
+<?php
+
 /*Clase que obtiene de config.php
 Toma los valores y los agrega a la clase.
 */
-<?php
 Class Conf
 {
    private $_domain;
